@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<!-- Desarrollo Web en Entorno Cliente
+Tema 2: Estructura del lenguaje javascript
+Tarea 2: Tablas de multiplicar y operaciones con desplazamiento de bit  
+Autor: Iker Macaya Faber -->
+
+<html>
+    <head>
+        <title>DWEC: Tarea 2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h2>Tabla de multiplicar del 7:</h2>
+            <!-- Codigo en Javascript para realizar las operaciones aritmeticas -->
+            <script>
+               
+                /* 
+                Tabla de multiplicar del 7. Implementada con bucle for
+                inicializamos la variable i a 0
+                en cada iteracion del bucle multiplicamos 7 por el valor de i
+                y mostramos el resultado en pantalla mientras i sea menor que 11.
+                */
+    
+                for(i=0;i<11;i++){
+                    document.write("7  * "+i+" = "+7*i+"<br>");
+                }
+                
+            </script>
+            <h2>Tabla de sumar del 8:</h2>
+            <!-- Codigo en Javascript para realizar las operaciones aritmeticas -->
+            <script>
+
+                /* 
+                Tabla de sumar del 8. Implementada con bucle while.
+                Inicializamos la variable i a 0
+                en cada iteracion del bucle sumamos 8 al valor de i
+                y mostramos el resultado en pantalla mientras i sea menor que 11.
+                */
+               
+                var i=0;
+                while(i<11){
+                    document.write("8  + "+i+" = "+(8+i)+"<br>");
+                    i++;
+                }
+            </script> 
+            <h2>Tabla de dividir del 9:</h2>
+            <!-- Codigo en Javascript para realizar las operaciones aritmeticas -->
+            <script>
+
+                /* 
+                Tabla de dividir del 9. Implementada con bucle do...while.
+                Inicializamos la variable i a 1, ya que no vamos a dividir por 0,
+                en cada iteracion del bucle dividimos 9 por el valor de i
+                y mostramos el resultado en pantalla mientras i sea menor que 11.
+                */
+               
+                var i=1;
+
+                do{
+                    document.write("9  / "+i+" = "+(9/i).toFixed(2)+"<br>");
+                    // con la función tofixed truncamos los decimales a dos.
+                    i++;
+                } while(i<11)
+            </script>
+            <h2>Operaciones con desplazamiento de bit:</h2>
+            <script>
+                // Operaciones con desplazamiento de bit
+                // 125/2 -- Desplazando un bit a la derecha dividomos 125 por 2. Muestra el resultado sin decimales.
+                var a = 125 >>1;
+                // 40 * 16 -- Desplazando 4 bits a la izquierda multiplicamos 40 por 16.
+                var b = 40 <<  4;
+                // 25 / 8 -- Desplazando 3 bits a la derecha dividimos 25 por 8. Muestra el resultado sin decimales.
+                var c= 25 >> 3;
+                // 10*4 -- Desplazando 2 bits a la izquierda multiplicamos 10 por 4.
+                var d= 10 << 2;
+                // Mostramos en pantalla los resultados.
+                document.write("125 / 2 = "+a+"<br>");
+                document.write("40 * 16 = "+b+"<br>");
+                document.write("25 / 8 = "+c+"<br>");
+                document.write("10 * 4 = "+d+"<br>");
+            </script> 
+    </body>
+</html>
