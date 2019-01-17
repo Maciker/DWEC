@@ -1,0 +1,59 @@
+Detalles de la tarea de esta unidad.
+Enunciado.
+Realizar una aplicación en JavaScript que realice lo siguiente:
+
+
+(Se recomienda usar Google Chrome para probar este ejercicio y desactivar los pop-ups)
+•	Abra una nueva ventana no redimensionable.
+
+o	Hacer una función y dentro de esa función:
+o	Escribir en la nueva ventana <h3>Ejemplo de Ventana Nueva</h3>
+o	URL Completa: XXXXX
+o	Protocolo utilizado: XXXXX
+o	Nombre en código del navegador: XXXXX
+o	Que detecte si está JAVA disponible en esa ventana del navegador y si es así que escriba:
+	Java SI disponible en esta ventana, o bien.
+	Java NO disponible en esta ventana.
+o	Que abra un iframe con el contenido de politecnicoestella.educacion.navarra.es y de 800x600.
+Y ahora fuera del código de la función que siga haciendo lo siguiente:
+•	Que escriba en la ventana principal <h2>TAREA DWEC03</h2><hr />
+•	Que solicite: introduzca su nombre y apellidos.
+•	Que solicite: introduzca DIA de nacimiento.
+•	Que solicite: introduzca MES de nacimiento.
+•	Que solicite: introduzca AÑO de nacimiento.
+•	Una vez solicitados esos datos imprimirá en la ventana principal:
+
+o	Buenos dias XXXXX
+o	Tu nombre tiene XX caracteres, incluidos espacios.
+o	La primera letra E de tu nombre está en la posición: X
+o	La última letra E de tu nombre está en la posición: X
+o	Tu nombre menos las 3 primeras letras es: XXXXXXXX
+o	Tu nombre todo en mayúsculas es: XXXXXXXX
+o	Tu edad es: XX años.
+o	Naciste un feliz XXXXXX del año XXXX.
+o	El coseno de 180 es: XXXXXXXXXX
+o	El número mayor de (34,67,23,75,35,19) es: XX
+o	Número al azar en un bingo (1 a 90): XXXXXXXXXX
+Donde aparecen las XXXX tendrá que aparecer el cálculo o texto que corresponda.
+Criterios de puntuación. Total 10 puntos.
+Los 10 puntos que tiene esta tarea están asignados de la siguiente forma:
+•	Creación de la función (0.2 puntos). (x1)
+o	0.5 puntos por cada apartado de la función. (x6)
+•	0.2 puntos por los apartados fuera de la función (color negro). (x5)
+•	0.436 puntos por los 11 apartados finales (círculos huecos). (x11)
+•	1 punto adicional por la claridad y presentación del código del ejercicio, comentarios en el código y su indentación.
+Recursos necesarios para realizar la Tarea.
+Editor web para teclear el código de la aplicación y un navegador web(recomendable Google Chrome – 
+desactivar bloqueo de pop-ups para probar su funcionamiento).
+Consejos y recomendaciones.
+Mirar las referencias y códigos de ejemplo de la página W3Schools:
+Página de referencia de w3shools.
+
+Indicaciones de entrega.
+Una vez realizada la tarea elaborarás un único documento donde figuren las respuestas correspondientes. 
+El envío se realizará a través de la plataforma de la forma establecida para ello, y el archivo se nombrará 
+siguiendo las siguientes pautas:
+apellido1_apellido2_nombre_SIGxx_Tarea
+Asegúrate que el nombre no contenga la letra ñ, tildes ni caracteres especiales extraños. Así por ejemplo 
+la alumna Begoña Sánchez Mañas para la tercera unidad del MP de DWEC, debería nombrar esta tarea como...
+sanchez_manas_begona_DWEC03_Tarea
