@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Desarrollo Web en Entorno Cliente
+Tema 3: Modelo de objetos predefinidos en Javascript
+Tarea 3.
+Autor: Iker Macaya Faber -->
+<html>
+    <head>
+        <title>DWEC: Tarea 3</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    
+    <body>
+        <script type="text/javascript">     
+               // Abre una nueva ventana: new_window.html, no redimensioable
+               window.open ("http://localhost:8383/03_Tarea/new_window.html","new_window","resizable=false");
+               function printInfo(){
+                   var result = "<br><br>";
+                   // Guardamos los datos del formulario en variables
+                   var nombre = document.getElementsByName("nombre")[0].value;
+                   var apellidos = document.getElementsByName("apellidos")[0].value;
+                   var dia = document.getElementsByName("dia")[0].value;
+                   var dianac = ["domingo", "lunes", "martes", "miercoles", "jueves", "viernes", "sabado"];
+                   var mes=document.getElementsByName("mes")[0].value - 1;
+                   var anno= document.getElementsByName("anno")[0].value;
+                   
+                   var fechanac = new Date(anno, mes, dia);
+                   /* Funcion para calcular la edad. Restamos el año actual, menos el año de nacimiento.
+                   comprobamos si el mes de nacimiento es mayor al actual o si siendo el mes de nacimiento el dia de nacimiento es mayor al actual
+                   en estos casos restamos uno a la edad, ya que todavia no hemos cumplido este año */
+                   function calcularEdad(fechanac) {
+                        var fechahoy = new Date();
+                        var edad = fechahoy.getFullYear() - fechanac.getFullYear();
+                        var m = fechahoy.getMonth() - fechanac.getMonth();
+                        if (m < 0 || (m === 0 && fechahoy.getDate() < fechanac.getDate())) {
+                        edad--;
+                        }
+                        return edad;
+                    }
+                    // Vamos añadiendo al resultado las operaciones con Strings
+                    result += "Buenos días: "+nombre+" "+apellidos+"<br><br>";
+                    result += "Tu nombre tiene "+nombre.length+" caracteres, incluidos espacios.<br><br>";
+                    result += "La primera letra E de tu nombre está en la posición: "+(nombre.toLowerCase().indexOf('e')+1)+"<br><br>";
+                    result += "La última letra E de tu nombre está en la posición: "+(nombre.toLowerCase().lastIndexOf('e')+1)+"<br><br>";
+                    result += "Tu nombre menos las 3 primeras letras es: "+nombre.slice(3)+"<br><br>";
+                    result += "Tu nombre todo en mayúsculas es: "+nombre.toUpperCase()+"<br><br>";
+                    
+                    // Vamos añadiendo al resultado las operaciones con fechas
+                    result += "Tu edad es: "+calcularEdad(fechanac)+"<br><br>";
+                    result += "Naciste un feliz "+dianac[fechanac.getDay()]+" del año "+anno+"<br><br>";
+                    
+                    // Vamos añadiendo al resultado las operaciones de tipo numerico
+                    result += "El coseno de 180 es: "+Math.cos(Math.PI)+"<br><br>";
+                    result += "El número mayor de (34,67,23,75,35,19) es: "+Math.max(34,67,23,75,35,19)+"<br><br>";
+                    result += "Número al azar en un bingo (1 a 90): "+Math.floor((Math.random() * 90) + 1)+"<br><br>";
+                    
+                    //Añadimos el resultado generado en la funcion al div output en nuestra pagina web.
+                    document.getElementById("output").innerHTML = result;
+               }
+        </script>    
+        <h2>TAREA DWEC03</h2><hr />
+        <h3>Introduzca la siguiente información:</h3>
+        <form id="dataform">
+            Nombre:<br> 
+            <input type="text" name="nombre" required><br><br>
+            Apellidos:<br>
+            <input type="text" name="apellidos" required><br><br>
+            Día de su nacimiento:<br>
+            <input type="number" name="dia" required><br><br>
+            Mes de su nacimiento:<br>
+            <input type="number" name="mes" required><br><br>
+            Año de su nacimiento:<br>
+            <input type="number" name="anno" required><br><br>
+            <input type="button" onclick="printInfo()" value="Mostrar Información">
+        </form>
+    <div id="output"></div>
+    </body>
+</html>

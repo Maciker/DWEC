@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Desarrollo Web en Entorno Cliente
+Tema 3: Modelo de objetos predefinidos en Javascript
+Tarea 3. new_window.html
+Autor: Iker Macaya Faber -->
+<html>
+    <head>
+        <title>Ejemplo de Ventana Nueva</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div id="output"></div>
+        <script type="text/javascript">
+            var w = self.window;
+            // Funcion a la que vamos a pasar la propia ventana para mostrar la información requerida en la tarea.
+            function mostrarInfo(w){
+                result = "<h3>Ejemplo de Ventana Nueva</h3><hr /><br>";
+                result += "URL Completa :"+w.location.href+"<br><br>";
+                result += "Protocolo utilizado: "+w.location.protocol+"<br><br>";
+                result += "Nombre en código del navegador: "+w.navigator.appCodeName+"<br><br>";
+                // Comprobamos si Java esta disponible, según lo este o no, añdimos al resultado su correspondiente frase.
+                if (w.navigator.javaEnabled){
+                    result += " Java SI disponible en esta ventana"+"<br><br>";
+                } else {
+                    result += " Java NO disponible en esta ventana"+"<br><br>";
+                }
+                // Creamos el frame con la url:
+                result +="<iframe  name=\"iframe_estella\"  src=\"http://politecnicoestella.educacion.navarra.es/web/index.php/es/\" height=\"800\" width=\"600\"></iframe>";
+                //Añadimos el resultado generado en la funcion al div output en nuestra pagina web.
+                document.getElementById("output").innerHTML = result;
+            }
+            // Ejecutamos la funcion, pasandole como parametro esta ventana, para ver la informacion requerida.
+            mostrarInfo(w);
+        </script> 
+    </body>
+</html>
