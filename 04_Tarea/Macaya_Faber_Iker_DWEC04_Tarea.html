@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- Desarrollo Web en Entorno Cliente
+Tema 4: Estructuras definidas por el usuario en JavaScript
+Tarea 4: Gestión de edificios
+Autor: Iker Macaya Faber -->
+<html>
+    <head>
+        <title>DWEC: Tarea 4</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <script>
+            // Creamos el objeto edificio. Cuando lo instanciemos le pasaremos la calle, el número y el código postal.
+            function Edificio(calle, num, cp){
+                this.calle = calle;
+                this.num = num;
+                this.cp = cp;
+                this.plantas = 0;
+                this.puertas = 0;
+                this.propietarios = new Array();
+                document.write("Construido nuevo edificio en calle: "+this.calle+", nº: "+this.num+", CP: "+this.cp+"<br>");
+            }
+        // Creamos 3 edificios de ejemplo
+        document.write("Creamos 3 edificios de ejemplo: <br>");
+        var edficioA = new Edificio ("San Lorenzo", 28, 31001);
+        edficioA.name = "edficioA";
+        var edficioB = new Edificio ("Estafeta", 8, 31001);
+        edficioB.name = "edficioB";
+        var edificioC = new Edificio ("Avenida Bayona", 4, 31111);
+        edificioC.name = "edificioC";
+        // Metodo para añadir nº de plantas y puertas por planta a cada edificio
+        Edificio.prototype.agregarPlantasYPuertas = function(numplantas, puertas) {
+            this.plantas += numplantas;
+            this.puertas += puertas;
+            // Añadimos al array de propietarios tantas filas como plantas añadimos al edificio.
+            for(i=1;i<=this.plantas;i++){
+                this.propietarios.push(new Array());
+            }
+        }
+        // Usamos el metodo agregarPlantasYPuertas para añadir 3 plantas y 3 puertas por planta al edificio edficioA
+        edficioA.agregarPlantasYPuertas(3,3);
+        // Metodo para actuaizar el nº de portal de un edificio
+        Edificio.prototype.modificarNumero = function (numero){
+            this.num = numero;
+        }
+        // Usamos el metodo modificarNumero para cambiar el numero deportal de 28 a 30.
+        edficioA.modificarNumero(30);
+        // Metodo para actuaizar la calle de un edificio
+        Edificio.prototype.modificarCalle = function (calle){
+            this.calle = calle;
+        }
+        // Usamos el metodo modificarCalle para cambiar de calle Estafeta a calle Mayor.
+        edficioB.modificarCalle("Mayor");
+        // Metodo para actuaizar el código psotal de un edificio
+        Edificio.prototype.modificarCP = function (codigo){
+            this.cp = codigo;
+        }
+        // Usamos el metodo modificarCP para cambiar el CP de 31111 a 31011.
+        edificioC.modificarCP(31011);
+        // Metodo que imprime la calle del edificio.
+        Edificio.prototype.imprimeCalle = function(){
+            document.write("La calle del edificio "+this.name+" es: "+this.calle+"<br>");
+        }
+        // Metodo que imprime el código postal del edificio.
+        Edificio.prototype.imprimeCP = function(){
+            document.write("El código postal del edificio "+this.name+" es: "+this.cp+"<br>");
+        }
+        // Metodo que imprime la calle y el nº de portal del edificio.
+        Edificio.prototype.imprimeNumero = function(){
+            document.write("El edificio "+this.name+" esta situado en la calle "+this.calle+" número: "+this.num+"<br>");
+        }
+        document.write("<br>Comprobamos informacion con los metodos de impresion, tras hacer cambios con los metodos de modificacion:<br>");
+        // Usamos los 3 metodos de impresion para comprobar los valores de cada edificio, y comprobar que los metodos de modificacion funcion.
+        edficioA.imprimeNumero();
+        edficioB.imprimeCalle();
+        edificioC.imprimeCP();
+        // Metodo para agregar propietarios al edificio.
+        Edificio.prototype.agregarPropietario= function (nombre,planta,puerta){
+            this.propietarios[planta-1][puerta-1] = nombre;
+            document.write(nombre+" es ahora el propietario de la puerta "+puerta+" de la planta "+planta+"<br>");
+        }
+        document.write("<br>Agregamos 5 propietarios al edificio:<br>");
+        // Usamos el metodo agregarPropietario para agregar 5 propietarios al edificio edficioA.
+        edficioA.agregarPropietario("Mikel",1,1);
+        edficioA.agregarPropietario("Iker",1,2);
+        edficioA.agregarPropietario("Erkuden",2,3);
+        edficioA.agregarPropietario("Maika",3,1);
+        edficioA.agregarPropietario("Iosu",3,2);
+        // Metodo que recorre el edificio y muestra los propietarios de cada piso.
+        // Recorremos el array de propietarios y vamos mostrando el nombre de los propietarios en caso de que exista.
+        Edificio.prototype.imprimePlantas = function(){
+            for(i=0;i<this.plantas;i++){
+                for(j=0;j<this.puertas;j++){
+                    var planta = i+1;
+                    var puerta=j+1;
+                    if (edficioA.propietarios[i][j] == undefined ){
+                        document.write("Propietario del piso "+puerta+" de la planta "+planta+" es: "+"<br>");
+                    } else {
+                        document.write("Propietario del piso "+puerta+" de la planta "+planta+" es: "+this.propietarios[i][j]+"<br>");
+                    }
+                }
+            }
+        }
+        document.write("<br>Recorremos el edificio para ver los propietarios:<br>");
+        edficioA.imprimePlantas();
+        </script>
+    </body>
+</html>
